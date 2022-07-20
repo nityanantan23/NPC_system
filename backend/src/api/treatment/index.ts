@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/treatment`,
+    require('./treatmentCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/treatment/:id`,
+    require('./treatmentUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/treatment/import`,
+    require('./treatmentImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/treatment`,
+    require('./treatmentDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/treatment/autocomplete`,
+    require('./treatmentAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/treatment`,
+    require('./treatmentList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/treatment/:id`,
+    require('./treatmentFind').default,
+  );
+};

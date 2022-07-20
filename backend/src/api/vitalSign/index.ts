@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/vital-sign`,
+    require('./vitalSignCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/vital-sign/:id`,
+    require('./vitalSignUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/vital-sign/import`,
+    require('./vitalSignImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/vital-sign`,
+    require('./vitalSignDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/vital-sign/autocomplete`,
+    require('./vitalSignAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/vital-sign`,
+    require('./vitalSignList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/vital-sign/:id`,
+    require('./vitalSignFind').default,
+  );
+};
